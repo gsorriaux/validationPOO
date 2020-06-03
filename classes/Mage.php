@@ -25,15 +25,15 @@ class Mage extends Character {
             $target->setHP($damage);
             $this->magicPoint -= $manaAtk;
             $target->isAlive();
-            $status = "$this->pseudo attaque $target->pseudo qui a $target->lifePoint points de vie! Il reste $this->magicPoint mp à $this->pseudo!";
+            $status = "{$this->pseudo} attaque {$target->pseudo} qui a {$target->lifePoint} points de vie! Il reste {$this->magicPoint} mp à {$this->pseudo}!";
         } elseif ($this->magicPoint > 0){
             $damage = $this->magicPoint * $rand;
             $target->setHP($damage);
             $this->magicPoint = 0;
             $target->isAlive();
-            $status = "$this->pseudo attaque $target->pseudo qui a $target->lifePoint points de vie! Il reste $this->magicPoint mp à $this->pseudo!";
+            $status = "{$this->pseudo} attaque {$target->pseudo} qui a {$target->lifePoint} points de vie! Il reste {$this->magicPoint} mp à {$this->pseudo}!";
         } else {
-            $status = "$this->pseudo n'a plus de mana, et ne peut pas attaquer!";
+            $status = "{$this->pseudo} n'a plus de mana, et ne peut pas attaquer!";
         }
 
         return $status;
@@ -41,7 +41,7 @@ class Mage extends Character {
 
     public function shield() {
         $this->shield = true;
-        $status = "$this->pseudo a activé son bouclier!";
+        $status = "{$this->pseudo} a activé son bouclier!";
         return $status;
     }
 

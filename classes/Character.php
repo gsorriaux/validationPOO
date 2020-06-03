@@ -7,7 +7,7 @@ class Character {
     public $atk = 15;
     protected $alive = true;
 
-    public function _construct($pseudo) {
+    public function __construct($pseudo) {
         $this->pseudo = $pseudo;
     }
     

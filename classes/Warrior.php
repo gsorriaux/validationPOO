@@ -10,7 +10,7 @@ class Warrior extends Character {
         $damage = $this->atk + $rand;
         $target->setHP($damage);
         $target->isAlive();
-        $status = "$this->pseudo attaque $target->pseudo qui a $target->lifePoint points de vie!";
+        $status = "{$this->pseudo} attaque {$target->pseudo} qui a {$target->lifePoint} points de vie!";
         return $status;
     }
 

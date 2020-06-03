@@ -19,6 +19,7 @@ class Archer extends Character {
                 return $this->attack($target);
             }
         } else {
+            //Special attack is active
             return $this->attack($target);
         }
     }
@@ -30,13 +31,13 @@ class Archer extends Character {
             $target->setHP($damage);
             $this->quiver -= 1;
             $target->isAlive();
-            $status = "$this->pseudo attaque $target->pseudo avec $this->specialAtk qui a $target->lifePoint points de vie!";
+            $status = "{$this->pseudo} attaque {$target->pseudo} avec {$this->specialAtk} qui a {$target->lifePoint} points de vie!";
             $this->specialAtk = 1; //Reset Special Attack
             return $status;
         } else {
             $target->setHP($this->atk);
             $target->isAlive();
-            $status = "$this->pseudo n'a plus de flèches et attaque avec sa dague $target->pseudo qui a $target->lifePoint points de vie!";
+            $status = "{$this->pseudo} n'a plus de flèches et attaque avec sa dague {$target->pseudo} qui a {$target->lifePoint} points de vie!";
             return $status;
         }
         
@@ -46,7 +47,7 @@ class Archer extends Character {
     public function focus($target){
         $rand = rand(15, 30)/10;
         $this->specialAtk = $rand;
-        $status = "$this->pseudo a trouvé un point faible à $target->pseudo...";
+        $status = "{$this->pseudo} a trouvé un point faible à {$target->pseudo}...";
         return $status;
 
     }
@@ -54,7 +55,7 @@ class Archer extends Character {
     public function double($target){
         $this->specialAtk = 2;
         $this->quiver -= 1;
-        $status = "$this->pseudo sort deux flèches de son carquois...";
+        $status = "{$this->pseudo} sort deux flèches de son carquois...";
         return $status;
 
     }
